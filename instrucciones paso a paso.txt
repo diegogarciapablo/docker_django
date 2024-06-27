@@ -1,0 +1,53 @@
+#primero establecer una carpeta donde estara almacenado todo el proyecto
+en este caso 
+	D:\esc\proy_dock_git_dja
+#crear el repositorio en github con un nombre facil de ubicar
+#una vez creado el repositorio entrar y copiar la direccion del repo 
+en este caso:
+	https://github.com/diegogarciapablo/docker_django.git
+#dentro de la carpeta clonar el repositorio para establecer el proyecto 
+y el repo en la carpeta en este caso:
+	git clone https://github.com/diegogarciapablo/docker_django.git
+##recuerda tener tu git actualizado en este caso:
+	git update-git-for-windows
+#crear un entorno virtual a la altura de la carpeta ya que la unica manera
+de actualizar un entorno virtual es de manera manual no es necesario 
+agregarlo en el repositorio en ese caso:
+	python -m venv dja_dock_venv
+#ingresar a la carpeta del entorno virtual luego a la carpeta scripts para
+activarlo en este caso:
+	cd dja_dock_venv\Scripts
+	activate
+#una vez activado aparecera un parentesis con el nombre del entorno virtual
+delante de la ruta que se muestra en el cmd
+#retornar a la carpeta raiz del proyecto e ingresar a la carpeta de
+ repositorio en este caso:
+	cd..
+	cd..
+	cd docker_django
+##recuerda tener actualizado el pip si vas a instalar una version nueva 
+de django
+	py -m pip install --upgrade pip
+#instalar framework django en su ultima version oficial:
+	py -m pip install Django
+#descargar la carpeta base del framework con el nombre del proyecto al final
+(dock_crud) en este caso:
+	django-admin startproject dock_crud
+#probar que el proyecto levanta sin problemas ingresando a la carpeta del
+proyecto y verificando que estas en la misma carpeta que manage.py
+	py manage.py runserver
+#salir de la ejecucion exitosa del proyecto django usando ctrl+c
+#crear el archivo de requerimientos dentro de la carpeta del proyecto en 
+la misma carpeta que contiene el archivo manage.py
+	pip freeze > requirements.txt
+#lo siguiente es crear 3 imagenes para docker
+#usando docker compose se crearan de manera automatica 2 las de mysql y 
+php myadmin por que tienen imagenes oficiales las cuales se pueden 
+descargar y usar el archivo de docker compose se llama:
+	docker-compose.yml
+#luego crear un dockerfile con las configuraciones necesarias para crear la 
+imagen docker del proyecto django llamado:
+	dockerfile
+# una vez creados y configurados los archivos ejecutar en el cmd:
+	docker-compose up --build -d
+

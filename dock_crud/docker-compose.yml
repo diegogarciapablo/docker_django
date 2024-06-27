@@ -44,4 +44,8 @@ services:
       - db
 
 volumes:
-  mysql_data:
+  db_data:
+    driver_opts:
+      type: none
+      device: D:\esc\Docker_img
+      o: bind
